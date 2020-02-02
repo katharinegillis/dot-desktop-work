@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 packages=(
-    common
+    system
+    git
 );
 
 pkg.install() {
