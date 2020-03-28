@@ -3,6 +3,7 @@
 packages=(
     system
     git
+    docker
 );
 
 pkg.install() {
@@ -10,6 +11,8 @@ pkg.install() {
 }
 
 pkg.pull() {
+    fs.link_files files
+
     for package in ${packages[*]}; do
         ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/$package" 2>&1 > /dev/null;
         if [ $? -ne 0 ]; then

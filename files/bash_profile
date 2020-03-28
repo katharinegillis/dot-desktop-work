@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+for f in ~/.bash_profile-*; do source $f; done
