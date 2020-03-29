@@ -4,6 +4,7 @@ packages=(
     system
     git
     docker
+    utils
 );
 
 pkg.install() {
