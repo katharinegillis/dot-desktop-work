@@ -5,6 +5,7 @@ packages=(
     git
     docker
     utils
+    node
 );
 
 pkg.install() {
