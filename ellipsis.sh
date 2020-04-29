@@ -13,7 +13,7 @@ packageName=$PKG_NAME;
 
 pkg.install() {
     # Install the packages
-    processPackages
+    installUpdatePackages
 }
 
 pkg.link() {
