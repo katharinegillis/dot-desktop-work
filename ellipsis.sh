@@ -22,14 +22,18 @@ pkg.link() {
 }
 
 pkg.pull() {
-    # Unlink files
-    hooks.unlink
+    # Check for updates on git
+    git remote update 2>&1 > /dev/null
+    if git.is_behind; then
+        # Unlink files
+        hooks.unlink
 
-    # Pull down the updates
-    git.pull
+        # Pull down the updates
+        git.pull
 
-    # Re-link files
-    pkg.link
+        # Re-link files
+        pkg.link
+    fi
 
     # Install new packages and update existing ones
     installUpdatePackages
