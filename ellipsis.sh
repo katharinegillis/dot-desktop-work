@@ -56,10 +56,10 @@ installUpdatePackages() {
         ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/$package" 2>&1 > /dev/null;
         if [ $? -ne 0 ]; then
             echo -e "\e[32mInstalling $package...\e[0m"
-            ellipsis.install $package
+            $ELLIPSIS_PATH/bin/ellipsis install $package;
         else
             echo -e "\e[32mUpdating $package...\e[0m"
-            ellipsis.pull $package
+            $ELLIPSIS_PATH/bin/ellipsis pull $package;
         fi
     done
 
@@ -69,7 +69,7 @@ installUpdatePackages() {
         echo ${packages[*]} | grep "$name" 2>&1 > /dev/null
         if [ $? -ne 0 ] && [[ "$name" != "$packageName" ]]; then
             echo -e "\e[32mUninstalling $package...\e[0m"
-            ellipsis.uninstall $package
+            $ELLIPSIS_PATH/bin/ellipsis uninstall $package;
         fi
     done
 }
@@ -80,7 +80,7 @@ removePackages() {
         ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/$package" 2>&1 > /dev/null;
         if [ $? = 0 ]; then
             echo -e "\e[32mUninstalling $package...\e[0m"
-            ellipsis.uninstall $package
+            $ELLIPSIS_PATH/bin/ellipsis uninstall $package;
         fi
     done
 }
