@@ -78,7 +78,7 @@ removePackages() {
     # Uninstall all installed packages on the list
     for package in ${packages[*]}; do
         ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/$package" 2>&1 > /dev/null;
-        if [ $? -e 0 ]; then
+        if [ $? = 0 ]; then
             echo -e "\e[32mUninstalling $package...\e[0m"
             ellipsis.uninstall $package
         fi
