@@ -8,19 +8,72 @@ packages=(
     node
 );
 
+# Store the current package name because it changes in certain circumstances
+packageName=$PKG_NAME;
+
 pkg.install() {
-    pkg.pull
+    # Install the packages
+    processPackages
+}
+
+pkg.link() {
+    # Link up the dot files
+    fs.link_files files
 }
 
 pkg.pull() {
-    fs.link_files files
+    # Unlink files
+    hooks.unlink
 
+    # Pull down the updates
+    git.pull
+
+    # Re-link files
+    pkg.link
+
+    # Install new packages and update existing ones
+    installUpdatePackages
+
+    # Inform user of sourcing their bash to refresh their profile in case it changed
+    echo "Please run \"source .bash_profile\" to refresh profile"
+}
+
+pkg.uninstall() {
+    # Remove managed packages
+    removePackages
+
+    # Uninstall self
+    hooks.uninstall
+}
+
+installUpdatePackages() {
+    # Install new packages or update existing ones from the list
     for package in ${packages[*]}; do
         ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/$package" 2>&1 > /dev/null;
         if [ $? -ne 0 ]; then
-            $ELLIPSIS_PATH/bin/ellipsis install $package;
+            ellipsis.install $package
         else
-            $ELLIPSIS_PATH/bin/ellipsis pull $package;
+            ellipsis.pull $package
+        fi
+    done
+
+    # Uninstall orphaned packages
+    for package in $(ellipsis.list_packages); do
+        name=$(pkg.name_from_path $package)
+        echo ${packages[*]} | grep "$name" 2>&1 > /dev/null
+        if [ $? -ne 0 ] && [[ "$name" != "$packageName" ]]; then
+            ellipsis.uninstall $package
+        fi
+    done
+}
+
+removePackages() {
+    # Uninstall all installed packages on the list
+    for package in ${packages[*]}; do
+        ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/$package" 2>&1 > /dev/null;
+        if [ $? -e 0 ]; then
+            echo "blah"
+            ellipsis.uninstall $package
         fi
     done
 }
