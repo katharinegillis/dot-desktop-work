@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 packages=(
-    system
-    git
-    docker
-    utils
-    node
+    katharinegillis/system
+    katharinegillis/git
+    katharinegillis/docker
+    katharinegillis/utils
+    katharinegillis/node
 );
 
 # Store the current package name because it changes in certain circumstances
