@@ -6,6 +6,7 @@ packages=(
     katharinegillis/docker
     katharinegillis/utils
     katharinegillis/node
+    katharinegillis/phpstorm
 );
 
 # Store the current package name because it changes in certain circumstances
