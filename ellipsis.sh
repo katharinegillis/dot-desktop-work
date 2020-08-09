@@ -39,7 +39,7 @@ pkg.pull() {
     installUpdatePackages
 
     # Inform user of sourcing their bash to refresh their profile in case it changed
-    echo "Please run \"source .bash_profile\" to refresh profile"
+    echo -e "\e[33mPlease run \"source .bash_profile\" to refresh profile\e[0m"
 }
 
 pkg.uninstall() {
@@ -53,13 +53,14 @@ pkg.uninstall() {
 installUpdatePackages() {
     # Install new packages or update existing ones from the list
     for package in ${packages[*]}; do
-        ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/$package" 2>&1 > /dev/null;
+	IFS='/' read -ra packageParsed <<< "$package"
+        ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/${packageParsed[1]}" 2>&1 > /dev/null;
         if [ $? -ne 0 ]; then
             echo -e "\e[32mInstalling $package...\e[0m"
             $ELLIPSIS_PATH/bin/ellipsis install $package;
         else
             echo -e "\e[32mUpdating $package...\e[0m"
-            $ELLIPSIS_PATH/bin/ellipsis pull $package;
+            $ELLIPSIS_PATH/bin/ellipsis pull ${packageParsed[1]};
         fi
     done
 
