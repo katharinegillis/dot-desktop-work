@@ -6,6 +6,7 @@ packages=(
     katharinegillis/docker
     katharinegillis/utils
     katharinegillis/node
+    katharinegillis/php
     katharinegillis/phpstorm
     katharinegillis/dev
 );
