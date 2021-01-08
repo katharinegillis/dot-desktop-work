@@ -11,7 +11,6 @@ packages=(
     katharinegillis/node
     katharinegillis/php
     katharinegillis/phpstorm
-    katharinegillis/dev
     katharinegillis/vcxsrv
     katharinegillis/firefox
     katharinegillis/slack
