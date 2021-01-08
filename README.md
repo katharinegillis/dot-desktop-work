@@ -12,4 +12,4 @@ This is an ellipsis package that acts as a meta package for running my personal 
 export ELLIPSIS_USER=katharinegillis
 export ELLIPSIS_PROTO=ssh
 ```
-5. Install the package using `ellipsis install desktop`
+5. Install the package using `ellipsis install desktop-work`

@@ -5,6 +5,7 @@ packages=(
     katharinegillis/chocolatey
     katharinegillis/windowsterminal
     katharinegillis/git
+    katharinegillis/dockerdesktop
     katharinegillis/docker
     katharinegillis/utils
     katharinegillis/node
@@ -13,6 +14,7 @@ packages=(
     katharinegillis/dev
     katharinegillis/vcxsrv
     katharinegillis/firefox
+    katharinegillis/slack
 );
 
 # Store the current package name because it changes in certain circumstances
