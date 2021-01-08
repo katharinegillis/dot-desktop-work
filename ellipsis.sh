@@ -12,6 +12,7 @@ packages=(
     katharinegillis/phpstorm
     katharinegillis/dev
     katharinegillis/vcxsrv
+    katharinegillis/firefox
 );
 
 # Store the current package name because it changes in certain circumstances
