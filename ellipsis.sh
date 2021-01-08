@@ -2,6 +2,8 @@
 
 packages=(
     katharinegillis/system
+    katharinegillis/chocolatey
+    katharinegillis/windowsterminal
     katharinegillis/git
     katharinegillis/docker
     katharinegillis/utils
