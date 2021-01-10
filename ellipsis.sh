@@ -65,9 +65,11 @@ installUpdatePackages() {
         if [ $? -ne 0 ]; then
             echo -e "\e[32mInstalling $package...\e[0m"
             $ELLIPSIS_PATH/bin/ellipsis install $package;
+            [ $? -eq 1 ] && exit
         else
             echo -e "\e[32mUpdating $package...\e[0m"
             $ELLIPSIS_PATH/bin/ellipsis pull ${packageParsed[1]};
+            [ $? -eq 1 ] && exit
         fi
     done
 
