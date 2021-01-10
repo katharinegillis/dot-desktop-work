@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
 packages=(
-    katharinegillis/system
-    katharinegillis/windowsterminal
-    katharinegillis/git
+    #katharinegillis/windowsterminal
+    #katharinegillis/vcxsrv
+    #katharinegillis/firefox
+    #katharinegillis/slack
     katharinegillis/dockerdesktop
-    katharinegillis/docker
-    katharinegillis/utils
-    katharinegillis/node
-    katharinegillis/php
-    katharinegillis/phpstorm
-    katharinegillis/vcxsrv
-    katharinegillis/firefox
-    katharinegillis/slack
+    #katharinegillis/system
+    #katharinegillis/git
+    #katharinegillis/docker
+    #katharinegillis/utils
+    #katharinegillis/node
+    #katharinegillis/php
+    #katharinegillis/phpstorm
 );
 
 # Store the current package name because it changes in certain circumstances
@@ -61,7 +61,7 @@ installUpdatePackages() {
     # Install new packages or update existing ones from the list
     for package in ${packages[*]}; do
 	IFS='/' read -ra packageParsed <<< "$package"
-        ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/${packageParsed[1]}" 2>&1 > /dev/null;
+        ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/${packageParsed[1]} " 2>&1 > /dev/null;
         if [ $? -ne 0 ]; then
             echo -e "\e[32mInstalling $package...\e[0m"
             $ELLIPSIS_PATH/bin/ellipsis install $package;
@@ -77,7 +77,7 @@ installUpdatePackages() {
         echo ${packages[*]} | grep "$name" 2>&1 > /dev/null
         if [ $? -ne 0 ] && [[ "$name" != "$packageName" ]]; then
             echo -e "\e[32mUninstalling $package...\e[0m"
-            $ELLIPSIS_PATH/bin/ellipsis uninstall $package;
+            #$ELLIPSIS_PATH/bin/ellipsis uninstall $package;
         fi
     done
 }
