@@ -14,6 +14,7 @@ packages=(
     katharinegillis/node
     katharinegillis/php
     katharinegillis/phpstorm
+    katharinegillis/dev-work
 );
 
 # Store the current package name because it changes in certain circumstances
