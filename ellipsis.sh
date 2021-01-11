@@ -60,7 +60,7 @@ pkg.uninstall() {
 installUpdatePackages() {
     # Install new packages or update existing ones from the list
     for package in ${packages[*]}; do
-	  IFS='/' read -ra packageParsed <<< "$package"
+	IFS='/' read -ra packageParsed <<< "$package"
         ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/${packageParsed[1]} " 2>&1 > /dev/null;
         if [ $? -ne 0 ]; then
             echo -e "\e[32mInstalling $package...\e[0m"
@@ -79,7 +79,7 @@ installUpdatePackages() {
         echo ${packages[*]} | grep "$name" 2>&1 > /dev/null
         if [ $? -ne 0 ] && [[ "$name" != "$packageName" ]]; then
             echo -e "\e[32mUninstalling $package...\e[0m"
-            #$ELLIPSIS_PATH/bin/ellipsis uninstall $package;
+            $ELLIPSIS_PATH/bin/ellipsis uninstall $package;
         fi
     done
 }
@@ -87,11 +87,11 @@ installUpdatePackages() {
 removePackages() {
     # Install new packages or update existing ones from the list
     for package in ${packages[*]}; do
-	  IFS='/' read -ra packageParsed <<< "$package"
+	IFS='/' read -ra packageParsed <<< "$package"
         ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/${packageParsed[1]} " 2>&1 > /dev/null;
-        if [ $? = 0 ]; then
+        if [ $? -ne 0 ]; then
             echo -e "\e[32mUninstalling $package...\e[0m"
-            $ELLIPSIS_PATH/bin/ellipsis uninstall $package;
+            $ELLIPSIS_PATH/bin/ellipsis uninstall ${packageParsed[1]};
         fi
     done
 }
