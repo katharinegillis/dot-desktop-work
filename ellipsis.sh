@@ -5,6 +5,7 @@ packages=(
     katharinegillis/vcxsrv
     katharinegillis/firefox
     katharinegillis/slack
+    katharinegillis/sublime
     katharinegillis/dockerdesktop
     katharinegillis/system
     katharinegillis/git
