@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
 packages=(
-    #katharinegillis/windowsterminal
-    #katharinegillis/vcxsrv
-    #katharinegillis/firefox
-    #katharinegillis/slack
+    katharinegillis/windowsterminal
+    katharinegillis/vcxsrv
+    katharinegillis/firefox
+    katharinegillis/slack
     katharinegillis/dockerdesktop
-    #katharinegillis/system
-    #katharinegillis/git
-    #katharinegillis/docker
-    #katharinegillis/utils
-    #katharinegillis/node
-    #katharinegillis/php
-    #katharinegillis/phpstorm
+    katharinegillis/system
+    katharinegillis/git
+    katharinegillis/docker
+    katharinegillis/utils
+    katharinegillis/node
+    katharinegillis/php
+    katharinegillis/phpstorm
 );
 
 # Store the current package name because it changes in certain circumstances
