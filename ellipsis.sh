@@ -46,7 +46,7 @@ pkg.pull() {
     installUpdatePackages
 
     # Inform user of sourcing their bash to refresh their profile in case it changed
-    echo -e "\e[33mPlease run \"source .bash_profile\" to refresh profile\e[0m"
+    echo -e "\e[33mPlease run \"\e[0msource .bash_profile\e[33m\" to refresh profile.\e[0m"
 }
 
 pkg.uninstall() {
