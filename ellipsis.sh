@@ -19,6 +19,8 @@ packages=(
 packageName=$PKG_NAME;
 
 pkg.install() {
+    pkg.link
+
     # Install the packages
     installUpdatePackages
 }
@@ -46,6 +48,7 @@ pkg.pull() {
     installUpdatePackages
 
     # Inform user of sourcing their bash to refresh their profile in case it changed
+    echo ""
     echo -e "\e[33mPlease run \"\e[0msource .bash_profile\e[33m\" to refresh profile.\e[0m"
 }
 
