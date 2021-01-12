@@ -6,6 +6,7 @@ packages=(
     katharinegillis/firefox
     katharinegillis/slack
     katharinegillis/sublime
+    katharinegillis/androidstudio
     katharinegillis/dockerdesktop
     katharinegillis/system
     katharinegillis/git
