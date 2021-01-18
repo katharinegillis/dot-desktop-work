@@ -16,6 +16,7 @@ packages=(
     katharinegillis/php
     katharinegillis/phpstorm
     katharinegillis/dev-work
+    katharinegillis/quasar
 );
 
 # Store the current package name because it changes in certain circumstances
