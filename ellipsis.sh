@@ -15,8 +15,8 @@ packages=(
     katharinegillis/node
     katharinegillis/php
     katharinegillis/phpstorm
-    katharinegillis/dev-work
-    katharinegillis/quasar
+    katharinegillis/adminer
+    katharinegillis/jade
 );
 
 # Store the current package name because it changes in certain circumstances
@@ -30,8 +30,8 @@ pkg.install() {
 }
 
 pkg.link() {
-    # Link up the dot files
-    fs.link_files files
+    [ -d "$PKG_PATH/files" ] && fs.link_files $PKG_PATH/files
+    [ -d "$PKG_PATH/bin" ] && fs.link_rfiles $PKG_PATH/bin $HOME/bin
 }
 
 pkg.pull() {
